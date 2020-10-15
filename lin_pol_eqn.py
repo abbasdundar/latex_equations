@@ -21,8 +21,8 @@
 #make_eq(ab,False,"pol")
 #'2x^3+x^2+3x^1+3x^0'
 
-# calling with multiple equations in one list
-# for systeme package set nl=","
+# Calling with multiple equations in one list
+# For good alignment use with latex "systeme" package set nl=","
 #AB=[[2,0,5,3],
 #    [1,3,-2,1],
 #    [-2,3,6,2]]
@@ -32,6 +32,7 @@
 
 
 def make_ax(a,i,n,etype="lin"):
+# This procedure converts input parameter a into ax_i or ax^i
     if a==0:
         ax=""
     else:
@@ -49,7 +50,10 @@ def make_ax(a,i,n,etype="lin"):
         if etype=="lin":
             xpart=   "x_"+str(i+1) 
         elif etype=="pol":
-            xpart=   "x^"+str(n-i-1) 
+            if i<n-1:
+                xpart="x^"+str(n-i-1)
+            else:
+                xpart=""
         ax=s+v+xpart
     return ax        
 
