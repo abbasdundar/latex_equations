@@ -32,15 +32,12 @@
 
 
 def make_ax(a,i,n,etype="lin"):
-# This procedure converts input parameter a into ax_i or ax^i
+# This procedure converts input parameter a into ax_i or ax^i    
     if a==0:
         ax=""
     else:
         if a>0:
-            if i==0:
-                s=""
-            else:
-                s="+"
+            s="+"
         else:
             s="-"
         if abs(a)==1:
@@ -69,4 +66,6 @@ def make_eq(ab,eq=True,etype="lin"):
     for i in range(range_n):
         ex+=make_ax(ab[i],i,range_n,etype)
     ex+=lastpart
+    if ex[0]=="+":     # if first char is + remove
+        ex=ex[1:]
     return ex
